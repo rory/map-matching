@@ -17,6 +17,7 @@
  */
 package com.graphhopper.matching;
 
+import com.graphhopper.storage.index.QueryResult;
 import java.util.List;
 
 /**
@@ -31,15 +32,22 @@ public class MatchResult
     private final double gpxEntriesLength;
     private final long gpxEntriesMillis;
 
+    private final QueryResult startQueryResult;
+    private final QueryResult endQueryResult;
+
     public MatchResult( List<EdgeMatch> edgeMatches, 
             double matchLength, long matchMillis, 
-            double gpxEntriesLength, long gpxEntriesMillis )
+            double gpxEntriesLength, long gpxEntriesMillis,
+            QueryResult startQueryResult, QueryResult endQueryResult
+            )
     {
         this.edgeMatches = edgeMatches;
         this.matchLength = matchLength;
         this.matchMillis = matchMillis;
         this.gpxEntriesLength = gpxEntriesLength;
         this.gpxEntriesMillis = gpxEntriesMillis;
+        this.startQueryResult = startQueryResult;
+        this.endQueryResult = endQueryResult;
     }
 
     public List<EdgeMatch> getEdgeMatches()
@@ -65,5 +73,15 @@ public class MatchResult
     public long getMatchMillis()
     {
         return matchMillis;
+    }
+    
+    public QueryResult getStartQueryResult()
+    {
+        return startQueryResult;
+    }
+
+    public QueryResult getEndQueryResult()
+    {
+        return endQueryResult;
     }
 }

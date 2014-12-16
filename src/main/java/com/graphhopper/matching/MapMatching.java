@@ -226,7 +226,9 @@ public class MapMatching {
         long gpxMillis = gpxList.get(gpxList.size() - 1).getMillis() - gpxList.get(0).getMillis();
         MatchResult matchResult = new MatchResult(edgeMatches,
                 path.getDistance(), path.getMillis(),
-                gpxLength, gpxMillis);
+                gpxLength, gpxMillis,
+                startQueryResult, endQueryResult
+                );
         return matchResult;
     }
 
