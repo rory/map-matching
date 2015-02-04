@@ -67,4 +67,9 @@ public class EdgeMatch
     {
         return "edge:" + edgeState + ", extensions:" + gpxExtensions;
     }
+
+    public EdgeIteratorState getEdgeState()
+    {
+        return this.edgeState;
+    }
 }
